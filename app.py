@@ -23,8 +23,8 @@ def home():
         f"/api/v1.0/precipitation<br/>"
         f"/api/v1.0/stations<br/>"
         f"/api/v1.0/tobs<br/>"
-        f"/api/v1.0/<start><br/>"
-        f"/api/v1.0/<start>/<end><br/>"
+        f"/api/v1.0/start_only/<start><br/>"
+        f"/api/v1.0/start_end/<start>/<end><br/>"
     )
 @app.route("/api/v1.0/precipitation")
 def precipitation():
@@ -68,6 +68,16 @@ def tobs():
     session.close()
     results_tobs = list(np.ravel(tobs_results))
     return jsonify(results_tobs)
+
+@app.route("/api/v1.0/start_only/<start>")
+def start_temps(start):
+    """Retrieve tMin, tAvg, tMax >= the start date provided"""
+    session = Session(engine)
+    start_results = session.query(func.min(Measurement.tobs), func.avg(Measurement.tobs), func.max(Measurement.tobs)).\
+        filter(Measurement.date >= start).all()
+    session.close()
+    results_start = list(np.ravel(start_results))
+    return jsonify(results_start)
 
 
 if __name__ == '__main__':
