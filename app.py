@@ -79,6 +79,15 @@ def start_temps(start):
     results_start = list(np.ravel(start_results))
     return jsonify(results_start)
 
+@app.route("/api/v1.0/start_end/<start>/<end>")
+def start_end(start, end):
+    """Retrieve tMin, tAvg, tMax for dates between start/end dates provided"""
+    session = Session(engine)
+    start_end_results = session.query(func.min(Measurement.tobs), func.avg(Measurement.tobs), func.max(Measurement.tobs)).\
+        filter(Measurement.date >= start).filter(Measurement.date <= end).all()
+    session.close()
+    results_start_end = list(np.ravel(start_end_results))
+    return jsonify(results_start_end)
 
 if __name__ == '__main__':
     app.run(debug=True)
