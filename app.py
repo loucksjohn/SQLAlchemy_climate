@@ -52,7 +52,7 @@ def precipitation():
 def stations():
     """Retrieve list of stations from Dataset"""
     session = Session(engine)
-    station_list = session.query(Station.station, Station.name, Station.latitude, Station.longitude).all()
+    station_list = session.query(Station.station, Station.name).all()
     session.close()
     all_stations = list(np.ravel(station_list))
     return jsonify(all_stations)
