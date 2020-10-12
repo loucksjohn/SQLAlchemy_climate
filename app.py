@@ -42,22 +42,34 @@ def precipitation():
     prev_precip = []
     for date, prcp in results:
         precip_dict = {}
-        #need to determine first of all if i should use that session query 
-            #above to do last 12 mos. or if it's all the datapoints for prcp
-        #precip_dict["name"] = name
-        #passenger_dict["age"] = age
-        #passenger_dict["sex"] = sex
-        #all_passengers.append(passenger_dict)
+        precip_dict[date] = prcp
+               
+        prev_precip.append(precip_dict)
 
-    return jsonify(all_passengers)
+    return jsonify(prev_precip)
+
+@app.route("/api/v1.0/stations")
+def stations():
+    """Retrieve list of stations from Dataset"""
+    session = Session(engine)
+    station_list = session.query(Station.station, Station.name, Station.latitude, Station.longitude).all()
+    session.close()
+    all_stations = list(np.ravel(station_list))
+    return jsonify(all_stations)
+
+@app.route("/api/v1.0/tobs")
+def tobs():
+    """Retrieve USC00519281 TOBS for previous year"""
+    session = Session(engine)
+    prev_year = dt.date(2017,8,23) - dt.timedelta(days=365)
+    tobs_results = session.query(Measurement.tobs).\
+    filter(Measurement.date >= prev_year).\
+    filter(Measurement.station == "USC00519281").all()
+    session.close()
+    results_tobs = list(np.ravel(tobs_results))
+    return jsonify(results_tobs)
 
 
-    return 
-
-
-
-
-
-
-if __name__=="__main__"
+if __name__ == '__main__':
     app.run(debug=True)
+
