@@ -32,9 +32,9 @@ I didn't get to any of the other bonus problems.
 
 The other piece of the assignment was to create a Climate App using a Flask API based on the queries I explained above.  I encourage you to
 check out the Flask API i built--i mentioned it earlier, but it's the file entitled "app.py".  Here are the list for all the routes you can
-go to in the app:
+go to in the app:</br>
 /api/v1.0/precipitation<br/>
-/api/v1.0/stations<br/>"
-/api/v1.0/tobs<br
-/api/v1.0/start_only/<start><br/>"
-/api/v1.0/start_end/<start>/<end><br/>"
+/api/v1.0/stations<br/>
+/api/v1.0/tobs<br/>
+/api/v1.0/start_only/<start><br/>
+/api/v1.0/start_end/<start>/<end><br/>
