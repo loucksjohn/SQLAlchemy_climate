@@ -12,4 +12,6 @@ for SQLite just open up the "Hawaii.sqlite" database and see what the tables wer
 On the the precipitation analysis.  After doing an initial query to determine most recent date in the database, I used 
 that date (2017-08-23) and the datetime function of timedelta to create a variable for the timeframe of "the last 12 months.
 Once I had that, and another variable containing the classes I wanted to query, i did a session.query to get all the 
-recorded rainfall for the previous year and put it into a DataFrame (rainfall_df).  With that DataFrame I could then plot the data
+recorded rainfall for the previous year and put it into a DataFrame (rainfall_df).  With that DataFrame I could then plot the data into
+a bar chart:
+![alt text](https://github.com/loucksjohn/sqlalchemy-challenge/blob/main/rainfall_bar.pngraw=true)
