@@ -27,3 +27,14 @@ would do the calculation on the trip dates that I put in.  The bulk of the probl
 bar chart.  First thing I did was  create a variable for the calc temps so that i could then use the Numpy Ravel function to take the results
 out tuple format and into a list format. then it was just a matter of setting up the variables for the tMIN, tAVG, and tMAX so that i could 
 plot out the following bar chart: ![alt text](https://github.com/loucksjohn/sqlalchemy-challenge/blob/main/bonus_bar.png?raw=true)
+
+I didn't get to any of the other bonus problems.
+
+The other piece of the assignment was to create a Climate App using a Flask API based on the queries I explained above.  I encourage you to
+check out the Flask API i built--i mentioned it earlier, but it's the file entitled "app.py".  Here are the list for all the routes you can
+go to in the app:
+/api/v1.0/precipitation<br/>
+/api/v1.0/stations<br/>"
+/api/v1.0/tobs<br
+/api/v1.0/start_only/<start><br/>"
+/api/v1.0/start_end/<start>/<end><br/>"
