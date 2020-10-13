@@ -14,3 +14,9 @@ that date (2017-08-23) and the datetime function of timedelta to create a variab
 Once I had that, and another variable containing the classes I wanted to query, i did a session.query to get all the 
 recorded rainfall for the previous year and put it into a DataFrame (rainfall_df).  With that DataFrame I could then plot the data into
 a bar chart:  ![alt text](https://github.com/loucksjohn/sqlalchemy-challenge/blob/main/rainfall_bar.png?raw=true)
+
+After that it was time to run a query to find the most how active each weather station had been over the timeframe of that dataset, 
+there were 9 total stations.  The query that I ran for that one was a little more complicated as it involved doing a .group_by & 
+.order_by in order to get the results that i wanted. After determining which station was the most active,I could then look at highest 
+temp. recorded, avg. temp, and lowest temp.  All that was left to do then was to pull the last twelve months of temp data for most active
+station (USC00519281) and plot a histogram from the results: ![alt text](https://github.com/loucksjohn/sqlalchemy-challenge/blob/main/station_hist.png?raw=true)
