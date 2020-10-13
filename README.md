@@ -21,3 +21,9 @@ there were 9 total stations.  The query that I ran for that one was a little mor
 .order_by in order to get the results that i wanted. After determining which station was the most active,I could then look at highest 
 temp. recorded, avg. temp, and lowest temp.  All that was left to do then was to pull the last twelve months of temp data for most active
 station (USC00519281) and plot a histogram from the results: ![alt text](https://github.com/loucksjohn/sqlalchemy-challenge/blob/main/station_hist.png?raw=true)
+
+I did go ahead and do ##Temperature Analysis II bonus portion that was on the starter notebook.  Again, some bootstrapping was provided that 
+would do the calculation on the trip dates that I put in.  The bulk of the problem was to figure out how to then plot those results into a
+bar chart.  First thing I did was  create a variable for the calc temps so that i could then use the Numpy Ravel function to take the results
+out tuple format and into a list format. then it was just a matter of setting up the variables for the tMIN, tAVG, and tMAX so that i could 
+plot out the following bar chart: ![alt text](https://github.com/loucksjohn/sqlalchemy-challenge/blob/main/bonus_bar.png?raw=true)
