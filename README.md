@@ -38,3 +38,11 @@ go to in the app:</br>
 /api/v1.0/tobs<br/>
 /api/v1.0/start_only/<start><br/>
 /api/v1.0/start_end/<start>/<end><br/>
+TWO THINGS I want to point out:  1)for the last two routes, "start_only" and "start_end", the date format needs to be YYYY-MM-DD, 
+and 2)you need to have a slash between the start date and the end date for the "start_end" route.  So it would look 
+like /api/v1.0/start_end/2016-05-20/2017-05-01.  And the results that are returned for those last two routes are [min. temp, avg. temp, and max. temp].
+When given only the start date, it will calc those values for all dates greater than or equal to the date you provide.  And when you 
+use the other route and provide a start date and an end date, it will calc the min, avg, max temps for all those dates in between what you provided.
+
+thanks for reading.  Please feel free to reach out if you have any questions or suggested improvements.  This one was alot of fun.  I 
+can't wait to get to Hawaii......
